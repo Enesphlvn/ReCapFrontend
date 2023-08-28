@@ -1,0 +1,21 @@
+<div class="alert alert-primary" role="alert" style="text-align: center">
+  KİRALAMALAR
+</div>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Marka</th>
+      <th>Ad</th>
+      <th>Soyad</th>
+      <th>Kiralama Tarihi</th>
+      <th>Dönüş Tarihi</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let rental of rentals">
+    <td>{{ rental.brandName }}</td>
+    <td>{{ rental.firstName }}</td>
+    <td>{{ rental.lastName }}</td>
+    <td>{{ rental.rentDate }}</td>
+    <td>{{ rental.returnDate }}</td>
+  </tr>
+</table>
