@@ -1,15 +1,24 @@
 <div class="alert alert-warning" role="alert" style="text-align: center">
   MARKALAR
 </div>
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Marka</th>
-    </tr>
-  </thead>
-  <tr *ngFor="let brand of brands">
-    <td>{{ brand.brandId }}</td>
+<table
+  style="cursor: pointer"
+  class="table table-bordered table-striped"
+  class="list-group"
+>
+  <tr
+    (click)="setCurrentAllBrand()"
+    [class]="getAllBrandClass()"
+    routerLink="/cars"
+  >
+    TÜM ARAÇLAR
+  </tr>
+  <tr
+    (click)="setCurrentBrand(brand)"
+    routerLink="/cars/brand/{{ brand.brandId }}"
+    *ngFor="let brand of brands"
+    [class]="getCurrentBrandClass(brand)"
+  >
     <td>{{ brand.brandName }}</td>
   </tr>
 </table>

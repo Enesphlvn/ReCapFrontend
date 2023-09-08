@@ -1,7 +1,7 @@
 <div class="alert alert-danger" role="alert" style="text-align: center">
   ARAÇLAR
 </div>
-<table class="table table-bordered table-striped">
+<table style="cursor: pointer" class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>Araba Adı</th>
@@ -12,7 +12,11 @@
       <th>Açıklama</th>
     </tr>
   </thead>
-  <tr *ngFor="let car of cars">
+  <tr
+    (click)="detail(car.id)"
+    routerLink="/cars/{{ car.id }}"
+    *ngFor="let car of cars"
+  >
     <td>{{ car.carName }}</td>
     <td>{{ car.brandName }}</td>
     <td>{{ car.colorName }}</td>
@@ -21,3 +25,4 @@
     <td>{{ car.description }}</td>
   </tr>
 </table>
+<app-car-detail *ngIf="selectedCarId" [carId]="selectedCarId"></app-car-detail>

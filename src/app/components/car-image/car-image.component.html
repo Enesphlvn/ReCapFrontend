@@ -1,0 +1,17 @@
+<div class="alert alert-success" role="alert" style="text-align: center">
+  ARABA RESİMLERİ
+</div>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Araba Adı</th>
+      <th>Aracın Resmi</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let carImage of carImages">
+    <td>{{ carImage.id }}</td>
+    <td>{{ carImage.carId }}</td>
+    <img [src]="carImage.imagePath" alt="Araba Resmi" width="90" height="65">
+  </tr>
+</table>
