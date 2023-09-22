@@ -9,6 +9,7 @@ import { CarImageService } from 'src/app/services/car-image.service';
 })
 export class CarImageComponent implements OnInit {
   carImages: CarImage[] = [];
+  dataLoaded = false;
 
   constructor(private carImageService: CarImageService) {}
 

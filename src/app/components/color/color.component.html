@@ -1,17 +1,19 @@
 <div class="alert alert-info" role="alert" style="text-align: center">
-  RENKLER
+  <strong>RENKLER</strong>
 </div>
-<table
-  style="cursor: pointer"
-  class="table table-bordered table-striped"
-  class="list-group"
+
+<select
+  class="form-select"
+  *ngIf="colorLoaded == true"
+  [(ngModel)]="currentColor"
+  aria-label="Default select example"
+  routerLink="cars/color/{{ currentColor }}"
 >
-  <tr
-    (click)="setCurrentColor(color)"
-    routerLink="/cars/color/{{ color.colorId }}"
-    *ngFor="let color of colors"
-    [class]="getCurrentColorClass(color)"
+  <option [ngValue]="null">Renk seçiniz</option>
+  <option
+    *ngFor="let color of colors | colorFilterPipe : filterText"
+    [value]="color.colorId"
   >
-    <td>{{ color.colorName }}</td>
-  </tr>
-</table>
+    {{ color.colorName }}
+  </option>
+</select>

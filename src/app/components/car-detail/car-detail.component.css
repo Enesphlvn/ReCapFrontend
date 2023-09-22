@@ -1,0 +1,11 @@
+.btn-success{
+    position: static;
+    top: 0%;
+    width: 200px;
+    height: 50px;
+  }
+
+  .carousel-inner img {
+    max-width: 1000px;
+    height: 650px;
+  }

@@ -1,0 +1,19 @@
+<div class="card-deck">
+  <div
+    class="card bg-light p-3"
+    style="width: 18rem"
+    *ngFor="let payment of payments"
+  >
+    <div class="card-body">
+      <h5 class="card-title">{{ payment.fullName }}</h5>
+      <div class="card-text">
+        <p class="mb-1">
+          Card Number: **** **** **** {{ payment.cardNumber | slice : -4 }}
+        </p>
+        <p class="mb-0">
+          Expiry Month-Year : {{ payment.month }} / {{ payment.year }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

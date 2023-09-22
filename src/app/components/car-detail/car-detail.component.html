@@ -1,16 +1,81 @@
-<div class="alert alert-success" role="alert" style="text-align: center">
-  ARACA AİT RESİMLER
+<div
+*ngIf="dataLoaded == false"
+class="spinner-border text-primary"
+role="status"
+>
+<span class="visually-hidden">Loading...</span>
 </div>
-<table class="table table-bordered table-striped">
-  <tr>
-    <td *ngFor="let carImage of carImages">
-      <img
-        [src]="carImage.imagePath"
-        class="rounded mx-auto d-block"
-        alt="Araba Resmi"
-        width="190"
-        height="130"
-      />
-    </td>
-  </tr>
-</table>
+
+<div class="alert alert-info" role="alert" style="text-align: center">
+  <strong>ARACA AİT RESİMLER</strong>
+</div>
+
+<!-- *ngIf="carImages.length > 0" -->
+
+<div class="row mt-4">
+  <div id="carouselExampleIndicators" class="carousel slide " data-bs-ride="true">
+      <ol class="carousel-indicators">
+        <li data-bs-target="#carouselExampleIndicators" *ngFor="let carImage of carImages; let i = index" 
+        [attr.data-bs-slide-to]="i" [class.active]="i == 0"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item" *ngFor="let carImage of carImages; let i = index" [ngClass]="i == 0 ? 'active': ''">
+          <div class="row">
+            <img [src]="getImagePath(carImage)"  class="d-block fit" alt="car image">
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next"  type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div> 
+</div> 
+
+<br>
+
+<div class="card-body">
+  <div style="text-align: center">
+    <button type="button" class="btn btn-success" (click)="addToCart(car)">ARACI SEPETE EKLE</button>
+  </div>
+</div>
+
+<br />
+
+<div>
+  <div class="card">
+    <div class="card-body">
+      <div *ngIf="car">
+        <h4 class="card-title text-center">{{car.brandName |uppercase}} </h4>
+        <br />
+        <tr>
+          <td><strong>Model:</strong> {{ car.carName }}</td>
+        </tr>
+        <br />
+        <tr>
+          <td><strong>Model Yılı:</strong> {{ car.modelYear }}</td>
+        </tr>
+        <br />
+        <tr>
+          <td><strong>Renk:</strong> {{ car.colorName }}</td>
+        </tr>
+        <br />
+        <tr>
+          <td><strong>Günlük Fiyat:</strong> {{ car.dailyPrice | currency : "TRY" : "symbol-narrow" : "1.2-2" }}</td>
+        </tr>
+        <br />
+        <tr>
+          <td><strong>Aylık Fiyat (%20 avantaj):</strong> {{ (car.dailyPrice * 30)*0.8 | currency : "TRY" : "symbol-narrow" : "1.2-2" }}</td>
+        </tr>
+        <br>
+        <tr>
+          <td><strong>Açıklama:</strong> {{ car.description }}</td>
+        </tr>
+      </div>
+    </div>
+  </div>
+</div>

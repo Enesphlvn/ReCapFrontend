@@ -1,0 +1,11 @@
+.badge.bg-secondary{
+    margin-left: 10px;
+}
+
+.center-text {
+    display: flex; /* İçerik merkezde görünecek */
+    justify-content: center; /* Yatayda merkez */
+    align-items: center; /* Dikeyde merkez */
+    height: 100%; /* İçeriğin yüksekliği ayarlayın (isteğe bağlı) */
+}
+

@@ -1,24 +1,33 @@
-<div class="alert alert-warning" role="alert" style="text-align: center">
-  MARKALAR
-</div>
-<table
-  style="cursor: pointer"
-  class="table table-bordered table-striped"
-  class="list-group"
+<div
+  class="alert alert-warning"
+  role="alert"
+  style="text-align: center"
+  (click)="setCurrentAllBrand()"
+  [class]="getAllBrandClass()"
+  routerLink="/cars"
 >
-  <tr
-    (click)="setCurrentAllBrand()"
-    [class]="getAllBrandClass()"
-    routerLink="/cars"
+<button type="button" class="btn btn-success">
+  Tüm Araçları Listele
+</button>
+</div>
+
+<div class="alert alert-warning" role="alert" style="text-align: center">
+  <strong>MARKALAR</strong>
+</div>
+
+<select
+  class="form-select"
+  *ngIf="brandLoaded == true"
+  [(ngModel)]="selectedBrand"
+  aria-label="Default select example"
+  routerLink="cars/brand/{{ selectedBrand }}"
+>
+  <option [ngValue]="null">Marka seçiniz</option>
+  <option
+    *ngFor="let brand of brands | brandFilterPipe : filterText"
+    [value]="brand.brandId"
+
   >
-    TÜM ARAÇLAR
-  </tr>
-  <tr
-    (click)="setCurrentBrand(brand)"
-    routerLink="/cars/brand/{{ brand.brandId }}"
-    *ngFor="let brand of brands"
-    [class]="getCurrentBrandClass(brand)"
-  >
-    <td>{{ brand.brandName }}</td>
-  </tr>
-</table>
+    {{ brand.brandName }}
+  </option>
+</select>

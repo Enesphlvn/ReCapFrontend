@@ -1,0 +1,39 @@
+.truncate {
+    max-width: 435px;            /* Metnin maksimum genişliği (istediğiniz bir değeri kullanabilirsiniz) */
+}
+
+td.car-name {
+  text-align: center; /* Hücre içeriğini ortala */
+}
+
+td.brand-name {
+  text-align: center; /* Hücre içeriğini ortala */
+}
+
+td.color-name {
+  text-align: center; /* Hücre içeriğini ortala */
+}
+
+th.column {
+  text-align: center; /* Sütun başlığını ortala */
+}
+  
+td.model-year {
+  text-align: center; /* Hücre içeriğini ortala */
+}
+
+td.daily-price {
+  text-align: center; /* Hücre içeriğini ortala */
+}
+
+.table-container {
+  margin-top: 10px; /* Tablo üstünde 20 piksel boşluk */
+}
+
+.btn-success{
+  position: relative;
+  top: 15px;
+  width: 130px;
+  height: 37px;
+}
+  
