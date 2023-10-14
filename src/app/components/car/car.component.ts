@@ -34,7 +34,7 @@ export class CarComponent implements OnInit {
     private colorService: ColorService,
     private router:Router
   ) {}
-
+ 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
       if (params['brandId']) {

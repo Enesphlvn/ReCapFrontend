@@ -5,15 +5,14 @@
     data-bs-toggle="dropdown"
     aria-expanded="false"
   >
-    <strong>Sepetiniz</strong> 
+    <strong>Sepetiniz</strong>
   </a>
   <ul class="dropdown-menu">
     <li *ngFor="let cartItem of cartItems">
       <a class="dropdown-item">
-        <span class="badge bg-secondary">{{
-          cartItem.quantity
-        }}</span>
-        {{ cartItem.car.brandName }}-{{ cartItem.car.carName }}<span
+        <span class="badge bg-secondary">{{ cartItem.quantity }}</span>
+        {{ cartItem.car.brandName }}-{{ cartItem.car.carName
+        }}<span
           (click)="removeFromCart(cartItem.car)"
           class="badge bg-secondary"
           style="cursor: pointer"
@@ -21,6 +20,10 @@
         ></a
       >
     </li>
-    <li><a routerLink="rentals/add" style="cursor: pointer" class="dropdown-item"><strong class="center-text">KİRALA</strong></a></li>
+    <li>
+      <a routerLink="rentals/add" style="cursor: pointer" class="dropdown-item"
+        ><strong class="center-text">ŞİMDİ KİRALA</strong></a
+      >
+    </li>
   </ul>
 </li>

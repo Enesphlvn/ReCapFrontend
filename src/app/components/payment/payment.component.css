@@ -1,0 +1,30 @@
+.card {
+    display: inline-block;
+    margin: 10px;
+  }
+
+.card-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+.card-number {
+    font-size: 18px;
+    font-family: monospace;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+  }
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+  }
+
+.card-label {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+.card-value {
+    font-size: 14px;
+  }

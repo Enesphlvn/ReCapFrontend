@@ -1,16 +1,3 @@
-<div
-  class="alert alert-warning"
-  role="alert"
-  style="text-align: center"
-  (click)="setCurrentAllBrand()"
-  [class]="getAllBrandClass()"
-  routerLink="/cars"
->
-<button type="button" class="btn btn-success">
-  Tüm Araçları Listele
-</button>
-</div>
-
 <div class="alert alert-warning" role="alert" style="text-align: center">
   <strong>MARKALAR</strong>
 </div>
@@ -26,7 +13,6 @@
   <option
     *ngFor="let brand of brands | brandFilterPipe : filterText"
     [value]="brand.brandId"
-
   >
     {{ brand.brandName }}
   </option>
