@@ -1,0 +1,34 @@
+<div class="content">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="title text-center">Marka Sil</h5>
+      </div>
+      <div *ngIf="brand" class="card-body">
+        <form [formGroup]="brandDeleteForm">
+          <div class="mb-3">
+            <label for="brandName"><b>Marka Adı</b></label>
+            <div class="form-group">
+              <input
+                type="text"
+                id="brandName"
+                formControlName="brandName"
+                class="form-control"
+                readonly
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <button
+          class="btn btn-fill btn-success"
+          (click)="delete()"
+          style="float: right"
+        >
+          Sil
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

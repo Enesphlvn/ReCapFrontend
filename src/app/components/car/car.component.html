@@ -1,102 +1,106 @@
-<div
-*ngIf="dataLoaded == false"
-class="spinner-border text-primary"
-role="status"
->
-<span class="visually-hidden">Loading...</span>
-</div>
-
-<div class="alert alert-danger" role="alert" style="text-align: center">
-  <strong>ARAÇLAR</strong>
-</div>
-
-<div class="mb-3">
-  <label for="filterText" class="form-label"></label>
-  <input
-    type="text"
-    [(ngModel)]="filterText"
-    class="form-control"
-    id="filtertext"
-    placeholder="Araç ara"
-  />
-</div>
-
-<div class="row">
-  <div class="col-md-4">
-    <label>Marka seçiniz</label>
-    <select
-      class="form-select"
-      aria-label="Default select example"
-      [(ngModel)]="brandFilter"
-    >
-      <option *ngFor="let brand of brands" [value]="brand.brandId">
-        {{ brand.brandName }}
-      </option>
-    </select>
-  </div>
- 
-  <div class="col-md-4">
-    <label>Renk seçiniz</label>
-    <select
-      class="form-select"
-      aria-label="Default select example"
-      [(ngModel)]="colorFilter"
-    >
-      <option *ngFor="let color of colors" [value]="color.colorId">
-        {{ color.colorName }}
-      </option>
-    </select>
+<body>
+  <div
+    *ngIf="dataLoaded == false"
+    class="spinner-border text-primary"
+    role="status"
+  >
+    <span class="visually-hidden">Loading...</span>
   </div>
 
-  <div class="col-md-2">
-    <button
-      type="button"
-      (click)="getCarByBrandAndColor(brandFilter, colorFilter)"
-      class="btn btn-success mt-2"
-    >
-      Filtrele
-    </button>
+  <div class="alert alert-danger" role="alert" style="text-align: center">
+    <strong>ARAÇLAR</strong>
   </div>
-  <div class="col-md-2">
-    <button
-      type="submit"
-      class="btn btn-success mt-2"
-      style="margin-left: 10%"
-      (click)="clearFilters()"
-    >
-      Temizle
-    </button>
-  </div>
-</div>
 
-<div class="table-container">
-  <table style="cursor: pointer" class="table table-bordered table-striped">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Araba Adı</th>
-        <th>Marka</th>
-        <th>Renk</th>
-        <th class="column">Model Yılı</th>
-        <th class="column">Günlük Fiyat</th>
-        <th class="column">Açıklama</th>
+  <div class="mb-3">
+    <label for="filterText" class="form-label"></label>
+    <input
+      type="text"
+      [(ngModel)]="filterText"
+      class="form-control"
+      id="filtertext"
+      placeholder="Araç ara"
+    />
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <label>Marka seçiniz</label>
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        [(ngModel)]="brandFilter"
+      >
+        <option *ngFor="let brand of brands" [value]="brand.brandId">
+          {{ brand.brandName }}
+        </option>
+      </select>
+    </div>
+
+    <div class="col-md-4">
+      <label>Renk seçiniz</label>
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        [(ngModel)]="colorFilter"
+      >
+        <option *ngFor="let color of colors" [value]="color.colorId">
+          {{ color.colorName }}
+        </option>
+      </select>
+    </div>
+
+    <div class="col-md-2">
+      <button
+        type="button"
+        (click)="getCarByBrandAndColor(brandFilter, colorFilter)"
+        class="btn btn-success mt-2"
+      >
+        Filtrele
+      </button>
+    </div>
+    <div class="col-md-2">
+      <button
+        type="submit"
+        class="btn btn-success mt-2"
+        style="margin-left: 10%"
+        (click)="clearFilters()"
+      >
+        Temizle
+      </button>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table style="cursor: pointer" class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th class="center-text">Araba Adı</th>
+          <th class="center-text">Marka</th>
+          <th>Renk</th>
+          <th class="column">Model Yılı</th>
+          <th class="column">Günlük Fiyat</th>
+          <th class="column">Açıklama</th>
+          <th class="column">Findex Puanı</th>
+        </tr>
+      </thead>
+      <tr
+        (click)="detail(car.id)"
+        routerLink="/cars/{{ car.id }}"
+        *ngFor="let car of cars | carFilterPipe : filterText"
+      >
+        <td>{{ car.id }}</td>
+        <td class="car-name">{{ car.carName }}</td>
+        <td class="brand-name">{{ car.brandName }}</td>
+        <td class="color-name">{{ car.colorName }}</td>
+        <td class="model-year">{{ car.modelYear }}</td>
+        <td class="daily-price">
+          {{ car.dailyPrice | currency : "TRY" : "symbol-narrow" : "1.2-2" }}
+        </td>
+        <td class="description">{{ car.description }}</td>
+        <td class="findex-score">{{ car.findexScore }}</td>
       </tr>
-    </thead>
-    <tr
-      (click)="detail(car.id)"
-      routerLink="/cars/{{ car.id }}"
-      *ngFor="let car of cars | carFilterPipe : filterText"
-    >
-    <td>{{ car.id }}</td>
-      <td class="car-name">{{ car.carName }}</td>
-      <td class="brand-name">{{ car.brandName }}</td>
-      <td class="color-name">{{ car.colorName }}</td>
-      <td class="model-year">{{ car.modelYear }}</td>
-      <td class="daily-price">
-        {{ car.dailyPrice | currency : "TRY" : "symbol-narrow" : "1.2-2" }}
-      </td>
-      <td class="truncate">{{ car.description }}</td>
-    </tr>
-  </table>
-</div>
+    </table>
+  </div>
+</body>
 <app-car-detail *ngIf="selectedCarId" [carId]="selectedCarId"></app-car-detail>

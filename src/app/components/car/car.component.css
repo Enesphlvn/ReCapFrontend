@@ -1,5 +1,5 @@
-.truncate {
-    max-width: 435px;            /* Metnin maksimum genişliği (istediğiniz bir değeri kullanabilirsiniz) */
+.description {
+  max-width: 598px;   /* Metnin maksimum genişliği (istediğiniz bir değeri kullanabilirsiniz) */
 }
 
 td.car-name {
@@ -26,6 +26,10 @@ td.daily-price {
   text-align: center; /* Hücre içeriğini ortala */
 }
 
+td.findex-score {
+  text-align: center; /* Hücre içeriğini ortala */
+}
+
 .table-container {
   margin-top: 10px; /* Tablo üstünde 20 piksel boşluk */
 }
@@ -33,7 +37,10 @@ td.daily-price {
 .btn-success{
   position: relative;
   top: 15px;
-  width: 130px;
+  width: 177px;
   height: 37px;
 }
-  
+
+.center-text{
+  text-align: center;
+}

@@ -40,7 +40,7 @@ role="status"
 
 <div class="card-body">
   <div style="text-align: center">
-    <button type="button" class="btn btn-success" (click)="addToCart(car)">ARACI SEPETE EKLE</button>
+    <button type="button" class="btn btn-success" (click)="rentNow(car)">ŞİMDİ KİRALA</button>
   </div>
 </div>
 
@@ -71,7 +71,11 @@ role="status"
         <tr>
           <td><strong>Aylık Fiyat (%20 avantaj):</strong> {{ (car.dailyPrice * 30)*0.8 | currency : "TRY" : "symbol-narrow" : "1.2-2" }}</td>
         </tr>
-        <br>
+        <br />
+        <tr>
+          <td><strong>Findex Puanı:</strong> {{ car.findexScore }}</td>
+        </tr>
+        <br />
         <tr>
           <td><strong>Açıklama:</strong> {{ car.description }}</td>
         </tr>

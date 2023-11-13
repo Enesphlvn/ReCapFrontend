@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
@@ -17,7 +17,7 @@ import { CarDetailComponent } from './components/car-detail/car-detail.component
 import { CarFilterPipePipe } from './pipes/car-filter-pipe.pipe';
 import { BrandFilterPipePipe } from './pipes/brand-filter-pipe.pipe';
 import { ColorFilterPipePipe } from './pipes/color-filter-pipe.pipe';
-import { RentalAddComponent } from './components/rental-add/rental-add.component';
+import { RentalAddComponent } from './components/add/rental-add/rental-add.component';
 
 import { ToastrModule } from 'ngx-toastr';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
@@ -29,6 +29,11 @@ import { CarAddComponent } from './components/add/car-add/car-add.component';
 import { BrandUpdateComponent } from './components/update/brand-update/brand-update.component';
 import { ColorUpdateComponent } from './components/update/color-update/color-update.component';
 import { CarUpdateComponent } from './components/update/car-update/car-update.component';
+import { CarDeleteComponent } from './components/delete/car-delete/car-delete.component';
+import { BrandDeleteComponent } from './components/delete/brand-delete/brand-delete.component';
+import { ColorDeleteComponent } from './components/delete/color-delete/color-delete.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -53,7 +58,11 @@ import { CarUpdateComponent } from './components/update/car-update/car-update.co
     CarAddComponent,
     BrandUpdateComponent,
     ColorUpdateComponent,
-    CarUpdateComponent
+    CarUpdateComponent,
+    CarDeleteComponent,
+    BrandDeleteComponent,
+    ColorDeleteComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +75,9 @@ import { CarUpdateComponent } from './components/update/car-update/car-update.co
       positionClass:"toast-bottom-right"
     })
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -40,14 +40,13 @@ export class RentalAddComponent implements OnInit {
       this.rentalService.addRental(rental).subscribe(
         () => {
           this.toastrService.success(
-            'Başarılı! Ödeme Sayfasına Yönlendiriliyorsunuz...',
-            'Başarılı'
+            'Ödeme Sayfasına Yönlendiriliyorsunuz...', 'Başarılı'
           );
           this.router.navigate(['/payments/pay']);
         },
         (errorResponse) => {
           const errorMessage = errorResponse.error.message || 'Bir hata oluştu';
-          this.toastrService.error(errorMessage, 'Hata');
+          this.toastrService.error(errorResponse.error.message, 'Hata');
         }
       );
     } else {

@@ -30,7 +30,7 @@ export class BrandUpdateComponent implements OnInit {
       this.createBrandUpdateForm();
     });
   }
-
+ 
   createBrandUpdateForm() {
     this.brandUpdateForm = this.formBuilder.group({
       brandId: [this.brandId, Validators.required],

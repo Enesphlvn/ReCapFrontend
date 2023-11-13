@@ -53,4 +53,9 @@ export class CarService {
     let newPath = this.apiUrl + 'cars/update';
     return this.httpClient.put<ResponseModel>(newPath, car);
   }
+
+  delete(carId: number): Observable<ResponseModel>{
+    let newPath = this.apiUrl + 'cars/delete?carId=' + carId;
+    return this.httpClient.delete<ResponseModel>(newPath);
+  }
 }

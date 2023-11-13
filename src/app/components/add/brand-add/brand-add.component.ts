@@ -46,9 +46,7 @@ export class BrandAddComponent implements OnInit {
               i < responseError.error.ValidationErrors.length;
               i++
             ) {
-              this.toastrService.error(responseError.error.ValidationErrors[i].ErrorMessage
-                ,'Doğrulama Hatası'
-              );
+              this.toastrService.error(responseError.error.ValidationErrors[i].ErrorMessage,'Doğrulama Hatası');
             }
           }
         }
