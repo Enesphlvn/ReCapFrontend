@@ -81,7 +81,6 @@
           <th class="column">Model Yılı</th>
           <th class="column">Günlük Fiyat</th>
           <th class="column">Açıklama</th>
-          <th class="column">Findex Puanı</th>
         </tr>
       </thead>
       <tr
@@ -98,7 +97,6 @@
           {{ car.dailyPrice | currency : "TRY" : "symbol-narrow" : "1.2-2" }}
         </td>
         <td class="description">{{ car.description }}</td>
-        <td class="findex-score">{{ car.findexScore }}</td>
       </tr>
     </table>
   </div>

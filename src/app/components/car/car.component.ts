@@ -19,8 +19,8 @@ export class CarComponent implements OnInit {
   brands:Brand[] = [];
   colors:Color[] = [];
   carImages: CarImage[] = [];
-  brandFilter:number;
-  colorFilter:number;
+  brandFilter= 0;
+  colorFilter=0;
   detailModel: any;
   selectedCarId: number;
   dataLoaded = false;

@@ -18,8 +18,11 @@ import { BrandDeleteComponent } from './components/delete/brand-delete/brand-del
 import { ColorDeleteComponent } from './components/delete/color-delete/color-delete.component';
 import { LoginComponent } from './components/login/login.component';
 import { LoginGuard } from './guards/login.guard';
+import { RegisterComponent } from './components/register/register.component';
+import { UserUpdateComponent } from './components/update/user-update/user-update.component';
+import { PasswordUpdateComponent } from './components/update/password-update/password-update.component';
 
-const routes: Routes = [
+const routes: Routes = [ 
   { path: '', pathMatch: 'full', component: CarComponent },
   { path: 'cars/brand/:brandId', component: CarComponent },
   { path: 'cars/color/:colorId', component: CarComponent },
@@ -32,6 +35,8 @@ const routes: Routes = [
   { path: 'brands/add', component: BrandAddComponent, canActivate:[LoginGuard] },
   { path: 'brands/delete/:brandId', component: BrandDeleteComponent, canActivate:[LoginGuard] },
   { path: 'cars/update/:carId', component: CarUpdateComponent, canActivate:[LoginGuard]},
+  { path: 'update', component: UserUpdateComponent, canActivate:[LoginGuard]},
+  { path: 'updatepassword', component: PasswordUpdateComponent, canActivate:[LoginGuard]},
   { path: 'cars/brand/update/:brandId', component: BrandUpdateComponent, canActivate:[LoginGuard] },
   { path: 'cars/color/update/:colorId', component: ColorUpdateComponent, canActivate:[LoginGuard]},
   { path: 'colors/add', component: ColorAddComponent, canActivate:[LoginGuard] },
@@ -39,7 +44,8 @@ const routes: Routes = [
   { path: 'rentals', component: RentalComponent },
   { path: 'cars', component: CarComponent },
   { path: 'brands/list', component: BrandComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({

@@ -5,7 +5,9 @@ import {
   Validators,
   FormBuilder,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { SingleResponseModel } from 'src/app/models/singleResponseModel';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -19,8 +21,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private toastrService: ToastrService
-  ) {}
+    private toastrService: ToastrService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.createLoginForm();
@@ -39,18 +42,27 @@ export class LoginComponent implements OnInit {
       let loginModel = Object.assign({}, this.loginForm.value);
       this.authService.login(loginModel).subscribe(
         (response) => {
-          console.log(this.loginForm.value);
-          this.toastrService.info(response.message, 'Başarılı');
-          localStorage.setItem('token', response.data.token);
+          if (response) {
+            this.toastrService.info('Sisteme giriş yapıldı', 'Başarılı');
+            localStorage.setItem('token', response.token);
+            this.router.navigateByUrl('/');
+          } else {
+            this.toastrService.error(response, 'Hata');
+          }
+
         },
         (responseError) => {
           if (responseError.error) {
             this.toastrService.error(responseError.error);
           } else {
-            this.toastrService.error('Lütfen tüm alanları doldurunuz','Dikkat!');
+            this.toastrService.error('Lütfen tüm alanları doldurunuz', 'Dikkat!');
           }
         }
       );
     }
+  }
+
+  register() {
+    this.router.navigateByUrl("register");
   }
 }

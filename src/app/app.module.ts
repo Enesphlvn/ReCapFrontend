@@ -34,6 +34,9 @@ import { BrandDeleteComponent } from './components/delete/brand-delete/brand-del
 import { ColorDeleteComponent } from './components/delete/color-delete/color-delete.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { RegisterComponent } from './components/register/register.component';
+import { UserUpdateComponent } from './components/update/user-update/user-update.component';
+import { PasswordUpdateComponent } from './components/update/password-update/password-update.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +65,10 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     CarDeleteComponent,
     BrandDeleteComponent,
     ColorDeleteComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    UserUpdateComponent,
+    PasswordUpdateComponent
   ],
   imports: [
     BrowserModule,

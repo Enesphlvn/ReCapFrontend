@@ -1,0 +1,31 @@
+<body class="text-center">
+    <main class="form-signin w-100 m-auto">
+        <form [formGroup]="registerForm">
+            <img class="mb-4"
+                src="https://ares.shiftdelete.net/2023/05/ikinci-el-otomobil-satis-yonetmeligi-resmi-gazete-2.jpg"
+                alt="" width="120" height="105" />
+            <h1 class="h3 mb-3 fw-normal">Kayıt ol</h1>
+
+            <div class="form-floating">
+                <input formControlName="firstName" type="firstName" class="form-control" id="firstName"
+                    placeholder="First Name" />
+                <label for="floatingInput">İsim</label>
+            </div>
+            <div class="form-floating">
+                <input formControlName="lastName" type="lastName" class="form-control" id="lastName"
+                    placeholder="Last Name" placeholder="surname" />
+                <label for="floatingInput">Soyisim</label>
+            </div>
+            <div class="form-floating">
+                <input formControlName="email" type="email" class="form-control" id="email" placeholder="E-mail"
+                    placeholder="name@example.com" />
+                <label for="floatingInput">E-posta</label>
+            </div>
+            <div class="form-floating">
+                <input formControlName="password" type="password" class="form-control" id="password"
+                    placeholder="Password" placeholder="Password" />
+                <label for="floatingPassword">Parola</label>
+            </div>
+            <button class="btn btn-primary w-100 py-2" (click)="register()">
+                Kayıt ol
+            </button>

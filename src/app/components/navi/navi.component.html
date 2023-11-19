@@ -1,39 +1,34 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#"><strong>Ana Sayfa</strong></a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+<div>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><strong>RentACar</strong></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="payments/getall"
+              (click)="getPayments()">Kartlar</a>
+          </li>
+        </ul>
+      </div>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page"  routerLink="payments/getall" (click)="getPayments()">Kartlar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <app-cart-summary></app-cart-summary>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
+        <li class="nav-item" *ngIf="name" style="text-align: end;">
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="customerDropdown" role="button" data-bs-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">{{name}}</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a style="cursor: pointer" class="dropdown-item" (click)="updateProfile()">Profili güncelle</a>
+              <a style="cursor: pointer" class="dropdown-item" (click)="updatePassword()">Şifre değiştir</a>
+            </div>
+          </div>
+        </li>     
       </ul>
-      <form class="d-flex" role="search">
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <a class="nav-link active" role="button" aria-expanded="false" (click)="logOut()">
+        <strong>Çıkış Yap</strong>
+      </a>
     </div>
-  </div>
-</nav>
+  </nav>
+</div>
