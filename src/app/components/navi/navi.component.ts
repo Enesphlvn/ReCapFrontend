@@ -82,4 +82,8 @@ export class NaviComponent implements OnInit, OnDestroy {
   updatePassword(){
     this.router.navigateByUrl('updatepassword')
   }
+
+  homePage(){
+    this.router.navigateByUrl('');
+  }
 }

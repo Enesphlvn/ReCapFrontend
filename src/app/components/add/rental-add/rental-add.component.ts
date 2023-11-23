@@ -39,9 +39,7 @@ export class RentalAddComponent implements OnInit {
 
       this.rentalService.addRental(rental).subscribe(
         () => {
-          this.toastrService.success(
-            'Ödeme Sayfasına Yönlendiriliyorsunuz...', 'Başarılı'
-          );
+          this.toastrService.success('Başarılı');
           this.router.navigate(['/payments/pay']);
         },
         (errorResponse) => {

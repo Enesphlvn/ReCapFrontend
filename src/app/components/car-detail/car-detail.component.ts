@@ -56,7 +56,6 @@ export class CarDetailComponent implements OnInit {
   }
 
   rentNow(car:Car){
-    this.toastrService.success("Kiralama sayfasına yönlendiriliyorsunuz...", car.brandName + " " + car.carName);
     this.router.navigate(['rentals/add']);
   }
 }

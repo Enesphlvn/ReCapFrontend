@@ -6,12 +6,6 @@ role="status"
 <span class="visually-hidden">Loading...</span>
 </div>
 
-<div class="alert alert-info" role="alert" style="text-align: center">
-  <strong>ARACA AİT RESİMLER</strong>
-</div>
-
-<!-- *ngIf="carImages.length > 0" -->
-
 <div class="row mt-4">
   <div id="carouselExampleIndicators" class="carousel slide " data-bs-ride="true">
       <ol class="carousel-indicators">
@@ -69,13 +63,10 @@ role="status"
         </tr>
         <br />
         <tr>
-          <td><strong>Aylık Fiyat (%20 avantaj):</strong> {{ (car.dailyPrice * 30)*0.8 | currency : "TRY" : "symbol-narrow" : "1.2-2" }}</td>
-        </tr>
-        <br />
-        <tr>
           <td><strong>Açıklama:</strong> {{ car.description }}</td>
         </tr>
       </div>
     </div>
   </div>
 </div>
+<br />

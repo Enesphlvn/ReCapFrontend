@@ -12,7 +12,6 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { CarComponent } from './components/car/car.component';
 import { RentalComponent } from './components/rental/rental.component';
-import { CarImageComponent } from './components/car-image/car-image.component';
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
 import { CarFilterPipePipe } from './pipes/car-filter-pipe.pipe';
 import { BrandFilterPipePipe } from './pipes/brand-filter-pipe.pipe';
@@ -20,7 +19,6 @@ import { ColorFilterPipePipe } from './pipes/color-filter-pipe.pipe';
 import { RentalAddComponent } from './components/add/rental-add/rental-add.component';
 
 import { ToastrModule } from 'ngx-toastr';
-import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { PayComponent } from './components/pay/pay.component';
 import { BrandAddComponent } from './components/add/brand-add/brand-add.component';
@@ -37,6 +35,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegisterComponent } from './components/register/register.component';
 import { UserUpdateComponent } from './components/update/user-update/user-update.component';
 import { PasswordUpdateComponent } from './components/update/password-update/password-update.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -47,13 +46,11 @@ import { PasswordUpdateComponent } from './components/update/password-update/pas
     NaviComponent,
     CarComponent,
     RentalComponent,
-    CarImageComponent,
     CarDetailComponent,
     CarFilterPipePipe,
     BrandFilterPipePipe,
     ColorFilterPipePipe,
     RentalAddComponent,
-    CartSummaryComponent,
     PaymentComponent,
     PayComponent,
     BrandAddComponent,
@@ -68,7 +65,8 @@ import { PasswordUpdateComponent } from './components/update/password-update/pas
     LoginComponent,
     RegisterComponent,
     UserUpdateComponent,
-    PasswordUpdateComponent
+    PasswordUpdateComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

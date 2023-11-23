@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Payment } from 'src/app/models/payment';
 import { PaymentService } from 'src/app/services/payment.service';
@@ -14,7 +15,8 @@ export class PayComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private paymentService: PaymentService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -36,6 +38,8 @@ export class PayComponent implements OnInit {
       this.paymentService.addPayments(pay).subscribe(
         (response) => {
           this.toastrService.success(response.message, 'Başarılı!');
+
+          this.homePage();
         },
         (responseError) => {
           console.log(responseError);
@@ -50,5 +54,9 @@ export class PayComponent implements OnInit {
     } else {
       this.toastrService.error('Lütfen tüm alanları doldurunuz.', 'Hata!');
     }
+  }
+
+  homePage(){
+    this.router.navigateByUrl('')
   }
 }

@@ -1,0 +1,10 @@
+.custom-bg-color {
+    background-color: rgb(100, 150, 200);
+    padding: 20px;
+  }
+
+.text-reset:hover {
+    text-decoration: none; /* Opsiyonel: altı çizgiyi kaldırmak için */
+    cursor: pointer;
+  }
+  

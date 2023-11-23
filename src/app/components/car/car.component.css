@@ -1,39 +1,3 @@
-.description {
-  max-width: 598px;   /* Metnin maksimum genişliği (istediğiniz bir değeri kullanabilirsiniz) */
-}
-
-td.car-name {
-  text-align: center; /* Hücre içeriğini ortala */
-}
-
-td.brand-name {
-  text-align: center; /* Hücre içeriğini ortala */
-}
-
-td.color-name {
-  text-align: center; /* Hücre içeriğini ortala */
-}
-
-th.column {
-  text-align: center; /* Sütun başlığını ortala */
-}
-  
-td.model-year {
-  text-align: center; /* Hücre içeriğini ortala */
-}
-
-td.daily-price {
-  text-align: center; /* Hücre içeriğini ortala */
-}
-
-td.findex-score {
-  text-align: center; /* Hücre içeriğini ortala */
-}
-
-.table-container {
-  margin-top: 10px; /* Tablo üstünde 20 piksel boşluk */
-}
-
 .btn-success{
   position: relative;
   top: 15px;
@@ -43,4 +7,45 @@ td.findex-score {
 
 .center-text{
   text-align: center;
+}
+
+  .car-details-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  /* app.component.css */
+
+.car-details-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.car-details {
+  width: 48%;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+}
+
+.car-details:hover {
+  background-color: #f5f5f5;
+}
+
+.car-detail-item {
+  margin-bottom: 10px;
+}
+
+.car-details-container{
+  padding-top: 20px;
+}
+
+.search-image{
+  width: 40px;
+  height: 40px;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 50%; /* Opsiyonel: Yuvarlak bir profil resmi yapmak için */
 }

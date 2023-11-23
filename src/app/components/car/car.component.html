@@ -7,19 +7,18 @@
     <span class="visually-hidden">Loading...</span>
   </div>
 
-  <div class="alert alert-danger" role="alert" style="text-align: center">
-    <strong>ARAÇLAR</strong>
-  </div>
-
   <div class="mb-3">
     <label for="filterText" class="form-label"></label>
-    <input
-      type="text"
-      [(ngModel)]="filterText"
-      class="form-control"
-      id="filtertext"
-      placeholder="Araç ara"
-    />
+    <div class="input-group">
+      <img src="https://cdn4.iconfinder.com/data/icons/commenly-needed/400/Icon-12-512.png" class="search-image">
+      <input
+        type="text"
+        [(ngModel)]="filterText"
+        class="form-control"
+        id="filtertext"
+        placeholder="Araç adı ara"
+      />
+    </div>
   </div>
 
   <div class="row">
@@ -70,35 +69,33 @@
     </div>
   </div>
 
-  <div class="table-container">
-    <table style="cursor: pointer" class="table table-bordered table-striped">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th class="center-text">Araba Adı</th>
-          <th class="center-text">Marka</th>
-          <th>Renk</th>
-          <th class="column">Model Yılı</th>
-          <th class="column">Günlük Fiyat</th>
-          <th class="column">Açıklama</th>
-        </tr>
-      </thead>
-      <tr
-        (click)="detail(car.id)"
-        routerLink="/cars/{{ car.id }}"
-        *ngFor="let car of cars | carFilterPipe : filterText"
-      >
-        <td>{{ car.id }}</td>
-        <td class="car-name">{{ car.carName }}</td>
-        <td class="brand-name">{{ car.brandName }}</td>
-        <td class="color-name">{{ car.colorName }}</td>
-        <td class="model-year">{{ car.modelYear }}</td>
-        <td class="daily-price">
-          {{ car.dailyPrice | currency : "TRY" : "symbol-narrow" : "1.2-2" }}
-        </td>
-        <td class="description">{{ car.description }}</td>
-      </tr>
-    </table>
+  <div class="car-details-container">
+    <div
+      *ngFor="let car of cars | carFilterPipe : filterText"
+      class="car-details"
+      (click)="detail(car.id)"
+      routerLink="/cars/{{ car.id }}"
+    >
+      <div class="car-detail-item">
+        <strong>Araba Adı:</strong> {{ car.carName }}
+      </div>
+      <div class="car-detail-item">
+        <strong>Marka:</strong> {{ car.brandName }}
+      </div>
+      <div class="car-detail-item">
+        <strong>Renk:</strong> {{ car.colorName }}
+      </div>
+      <div class="car-detail-item">
+        <strong>Model Yılı:</strong> {{ car.modelYear }}
+      </div>
+      <div class="car-detail-item">
+        <strong>Günlük Fiyat:</strong>
+        {{ car.dailyPrice | currency : "TRY" : "symbol-narrow" : "1.2-2" }}
+      </div>
+      <div class="car-detail-item">
+        <strong>Açıklama:</strong> {{ car.description }}
+      </div>
+    </div>
   </div>
 </body>
 <app-car-detail *ngIf="selectedCarId" [carId]="selectedCarId"></app-car-detail>
