@@ -3,15 +3,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { UserUpdate } from 'src/app/models/userUpdate';
 import { AuthService } from 'src/app/services/auth.service';
-import jwt_decode from "jwt-decode";
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-user-update',
   templateUrl: './user-update.component.html',
-  styleUrls: ['./user-update.component.css']
+  styleUrls: ['./user-update.component.css'],
 })
 export class UserUpdateComponent implements OnInit {
-
   userUpdateForm: FormGroup = new FormGroup({});
   user: UserUpdate;
   userId!: number;
@@ -23,8 +22,8 @@ export class UserUpdateComponent implements OnInit {
     private authService: AuthService,
     private toastrService: ToastrService,
     private formBuilder: FormBuilder
-  ) { }
-
+  ) {}
+ 
   ngOnInit(): void {
     const token = localStorage.getItem('token');
 
@@ -32,20 +31,18 @@ export class UserUpdateComponent implements OnInit {
       if (!this.email) {
         try {
           const decoded: any = jwt_decode(token);
-          this.email = decoded["email"]
-        } catch (error) {
-        }
+          this.email = decoded['email'];
+        } catch (error) {}
       }
     }
     this.getByMail(this.email);
     this.createUserUpdateForm();
-
   }
 
   createUserUpdateForm() {
     this.userUpdateForm = this.formBuilder.group({
-      firstName: ["", Validators.required],
-      lastName: ["", Validators.required]
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
     });
   }
 
@@ -54,11 +51,11 @@ export class UserUpdateComponent implements OnInit {
       let userModel = Object.assign({}, this.userUpdateForm.value);
       userModel.email = this.email;
 
-      console.log(userModel)
+      console.log(userModel);
 
       this.authService.update(userModel).subscribe((response) => {
-        this.toastrService.success("İşlem başarıyla tamamlandı", "Başarılı");
-      })
+        this.toastrService.success('İşlem başarıyla tamamlandı', 'Başarılı');
+      });
     } else {
       this.toastrService.error('Lütfen tüm alanları doldurunuz', 'Dikkat!');
     }
@@ -66,18 +63,15 @@ export class UserUpdateComponent implements OnInit {
 
   getByMail(email: string) {
     this.authService.getByMail(email).subscribe((response) => {
-      if(response){
-
+      if (response) {
         const value = {
           firstName: response.firstName,
-          lastName: response.lastName
-        }
+          lastName: response.lastName,
+        };
         this.userUpdateForm.setValue(value);
       } else {
-        this.toastrService.error("Bilgiler okunamadı")
+        this.toastrService.error('Bilgiler okunamadı');
       }
-     
-    })
+    });
   }
 }
-

@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(loginModel).subscribe(
         (response) => {
           if (response) {
-            this.toastrService.info('Sisteme giriş yapıldı', 'Başarılı');
+            this.toastrService.success('Sisteme giriş başarılı');
             localStorage.setItem('token', response.token);
             this.router.navigateByUrl('/');
           } else {

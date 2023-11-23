@@ -10,7 +10,10 @@
   <div class="mb-3">
     <label for="filterText" class="form-label"></label>
     <div class="input-group">
-      <img src="https://cdn4.iconfinder.com/data/icons/commenly-needed/400/Icon-12-512.png" class="search-image">
+      <img
+        src="https://cdn4.iconfinder.com/data/icons/commenly-needed/400/Icon-12-512.png"
+        class="search-image"
+      />
       <input
         type="text"
         [(ngModel)]="filterText"
@@ -51,16 +54,16 @@
     <div class="col-md-2">
       <button
         type="button"
+        class="btn btn-outline-success custom-button"
         (click)="getCarByBrandAndColor(brandFilter, colorFilter)"
-        class="btn btn-success mt-2"
       >
         Filtrele
       </button>
     </div>
     <div class="col-md-2">
       <button
-        type="submit"
-        class="btn btn-success mt-2"
+        type="button"
+        class="btn btn-outline-danger custom-button1"
         style="margin-left: 10%"
         (click)="clearFilters()"
       >
@@ -77,6 +80,12 @@
       routerLink="/cars/{{ car.id }}"
     >
       <div class="car-detail-item">
+        <img
+          src="https://s7d1.scene7.com/is/image/hyundai/compare-vehicle-1225x619?wid=276&hei=156&fmt=webp-alpha"
+          class="car-image"
+        />
+      </div>
+      <div class="car-detail-item">
         <strong>Araba Adı:</strong> {{ car.carName }}
       </div>
       <div class="car-detail-item">
@@ -92,10 +101,8 @@
         <strong>Günlük Fiyat:</strong>
         {{ car.dailyPrice | currency : "TRY" : "symbol-narrow" : "1.2-2" }}
       </div>
-      <div class="car-detail-item">
-        <strong>Açıklama:</strong> {{ car.description }}
-      </div>
     </div>
   </div>
 </body>
+<br />
 <app-car-detail *ngIf="selectedCarId" [carId]="selectedCarId"></app-car-detail>

@@ -64,7 +64,7 @@ export class PasswordUpdateComponent implements OnInit {
 
       this.authService.passwordUpdate(request).subscribe((response) => {
 
-        this.toastrService.success("Güncelleme işlemi başarılı", "Başarılı");
+        this.toastrService.success("Güncelleme işlemi başarılı");
 
         this.logOut();
       })
@@ -76,6 +76,6 @@ export class PasswordUpdateComponent implements OnInit {
   logOut() {
     localStorage.removeItem('token')
     this.router.navigateByUrl("login")
-    this.toastrService.info("Sisteme tekrar giriş yapın")
+    this.toastrService.warning("Sisteme tekrar giriş yapın")
   }
 }

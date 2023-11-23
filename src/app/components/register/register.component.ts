@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
       this.authService.register(registerModel).subscribe(
         (response) => {
           console.log(this.registerForm.value);
-          this.toastrService.info("Kayıt işlemi gerçekleşti", 'Başarılı');
+          this.toastrService.success("Kayıt işlemi gerçekleşti", 'Başarılı');
           localStorage.setItem('token', String(response.data));
           this.router.navigateByUrl("/")
         },

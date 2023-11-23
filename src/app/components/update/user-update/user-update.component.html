@@ -1,25 +1,38 @@
 <body class="text-center">
-    <main class="form-signin w-100 m-auto">
-        <form [formGroup]="userUpdateForm" id="form">
-            <img class="mb-4"
-                src="https://ares.shiftdelete.net/2023/05/ikinci-el-otomobil-satis-yonetmeligi-resmi-gazete-2.jpg"
-                alt="" width="120" height="105" />
-            <h1 class="h3 mb-3 fw-normal">Profili güncelle</h1>
+  <main class="form-signin w-100 m-auto">
+    <form [formGroup]="userUpdateForm" id="form">
+      <img
+        class="mb-4"
+        src="https://cdn-icons-png.flaticon.com/512/9977/9977360.png"
+        class="user-image"
+      />
+      <hr class="solid" />
+      <h1 class="h3 mb-3 fw-normal">Profili güncelle</h1>
 
-            <div class="form-floating mb-2">
-                <input formControlName="firstName" type="firstName" class="form-control" id="firstName"
-                    placeholder="First Name" />
-                <label for="floatingInput">İsim</label>
-            </div>
-            <div class="form-floating mb-3">
-                <input formControlName="lastName" type="lastName" class="form-control" id="lastName"
-                    placeholder="Last Name" />
-                <label for="floatingInput">Soyisim</label>
-            </div>
-            <button class="btn btn-primary w-100 py-2 mb-2" (click)="update()">
-                Güncelle
-            </button>
-            <p class="mt-5 mb-3 text-body-secondary">&copy; 2023–2024</p>
-        </form>
-    </main>
+      <div class="form-floating mb-2">
+        <input
+          formControlName="firstName"
+          type="firstName"
+          class="form-control"
+          id="firstName"
+          placeholder="First Name"
+        />
+        <label for="floatingInput">İsim</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          formControlName="lastName"
+          type="lastName"
+          class="form-control"
+          id="lastName"
+          placeholder="Last Name"
+        />
+        <label for="floatingInput">Soyisim</label>
+      </div>
+      <button class="btn btn-primary w-100 py-2 mb-2" (click)="update()">
+        Güncelle
+      </button>
+      <p class="mt-5 mb-3 text-body-secondary">&copy; 2023–2024</p>
+    </form>
+  </main>
 </body>

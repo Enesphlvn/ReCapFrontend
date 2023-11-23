@@ -5,12 +5,8 @@
 }
 
 .nav-link:hover {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 128, 0);
   }
-
-.navbar-brand{
-    color: rgb(0, 0, 0);
-}
 
 .profile-image {
     width: 30px;

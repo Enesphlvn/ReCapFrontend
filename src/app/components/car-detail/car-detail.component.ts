@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { CarImage } from 'src/app/models/carImage';
 import { CarImageService } from 'src/app/services/car-image.service';
@@ -21,8 +20,7 @@ export class CarDetailComponent implements OnInit {
   constructor(
     private carImageService: CarImageService,
     private activatedRoute: ActivatedRoute,
-    private carService:CarService,
-    private toastrService: ToastrService,
+    private carService: CarService,
     private router: Router
   ) {}
 
@@ -30,8 +28,8 @@ export class CarDetailComponent implements OnInit {
     this.activatedRoute.params.subscribe((params) => {
       this.carId = +params['id'];
       this.getCarImages(this.carId);
-      if(params['id']){
-        this.getCarById(params['id'])
+      if (params['id']) {
+        this.getCarById(params['id']);
       }
     });
   }
@@ -43,11 +41,11 @@ export class CarDetailComponent implements OnInit {
     });
   }
 
-  getCarById(id:number) {
-    this.carService.getById(id).subscribe((response:any) => {
+  getCarById(id: number) {
+    this.carService.getById(id).subscribe((response: any) => {
       this.car = response.data;
       this.dataLoaded = true;
-    })
+    });
   }
 
   getImagePath(carImage: CarImage) {
@@ -55,7 +53,7 @@ export class CarDetailComponent implements OnInit {
     return path;
   }
 
-  rentNow(car:Car){
+  rentNow(car: Car) {
     this.router.navigate(['rentals/add']);
   }
 }

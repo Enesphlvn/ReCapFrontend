@@ -104,3 +104,11 @@ body {
   .form-floating{
     padding-top: 7px;
   }
+
+  .user-image {
+    width: 200px;
+    height: 200px;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%; /* Opsiyonel: Yuvarlak bir profil resmi yapmak için */
+  }

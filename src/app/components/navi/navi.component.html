@@ -1,20 +1,103 @@
 <div>
-  <nav class="navbar navbar-expand-lg" style="background-color: rgb(100, 150, 200);">
+  <nav
+    class="navbar navbar-expand-lg"
+    style="background-color: rgb(0, 102, 204)"
+  >
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"><h3><strong>RoadMasters</strong> </h3></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon">
-        </span>
+      <h3>
+        <span style="color: black"><strong>ROAD</strong></span>
+        <span style="color: rgb(255, 128, 0)"><strong>MASTERS</strong></span>
+      </h3>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"> </span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active"
-               aria-current="page"
-               (click)="homePage()"
-               ><strong>AnaSayfa</strong></a>
+            <a class="nav-link active" aria-current="page" (click)="homePage()"
+              ><strong>AnaSayfa</strong></a
+            >
           </li>
+
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <div class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  id="carDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  >Araba</a
+                >
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a
+                    style="cursor: pointer"
+                    class="dropdown-item"
+                    (click)="carAdd()"
+                    >Araba ekle</a
+                  >
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <div class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  id="carDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  >Marka</a
+                >
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a
+                    style="cursor: pointer"
+                    class="dropdown-item"
+                    (click)="brandAdd()"
+                    >Marka ekle</a
+                  >
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <div class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  id="carDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  >Renk</a
+                >
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a
+                    style="cursor: pointer"
+                    class="dropdown-item"
+                    (click)="colorAdd()"
+                    >Renk ekle</a
+                  >
+                </div>
+              </div>
+            </li>
+          </ul>
           <!-- <li class="nav-item">
             <a class="nav-link active" aria-current="page" routerLink="payments/getall"
               (click)="getPayments()">Kartlar</a>
@@ -22,21 +105,45 @@
         </ul>
       </div>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item" *ngIf="name" style="text-align: end;">
+        <li class="nav-item" *ngIf="name" style="text-align: end">
           <div class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="customerDropdown" role="button" data-bs-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Windows_10_Default_Profile_Picture.svg/2048px-Windows_10_Default_Profile_Picture.svg.png" class="profile-image">
-              {{name}}
+            <a
+              class="nav-link dropdown-toggle"
+              id="customerDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Windows_10_Default_Profile_Picture.svg/2048px-Windows_10_Default_Profile_Picture.svg.png"
+                class="profile-image"
+              />
+              {{ name }}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a style="cursor: pointer" class="dropdown-item" (click)="updateProfile()">Profili güncelle</a>
-              <a style="cursor: pointer" class="dropdown-item" (click)="updatePassword()">Şifre değiştir</a>
+              <a
+                style="cursor: pointer"
+                class="dropdown-item"
+                (click)="updateProfile()"
+                >Profili güncelle</a
+              >
+              <a
+                style="cursor: pointer"
+                class="dropdown-item"
+                (click)="updatePassword()"
+                >Şifre değiştir</a
+              >
             </div>
           </div>
-        </li>     
+        </li>
       </ul>
-      <a class="nav-link active" role="button" aria-expanded="false" (click)="logOut()">
+      <a
+        class="nav-link active"
+        role="button"
+        aria-expanded="false"
+        (click)="logOut()"
+      >
         <strong>Çıkış Yap</strong>
       </a>
     </div>

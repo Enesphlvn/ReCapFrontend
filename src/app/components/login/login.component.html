@@ -1,17 +1,32 @@
 <body class="text-center">
   <main class="form-signin w-100 m-auto">
     <form [formGroup]="loginForm" id="form">
-      <img class="mb-4"
-        src="https://ares.shiftdelete.net/2023/05/ikinci-el-otomobil-satis-yonetmeligi-resmi-gazete-2.jpg" alt=""
-        width="120" height="105" />
+      <img
+        class="mb-4"
+        src="https://cdn0.iconfinder.com/data/icons/flat-security-icons/512/lock-open-blue.png"
+        class="login-image"
+      />
+      <hr class="solid" />
       <h1 class="h3 mb-3 fw-normal">Giriş yap</h1>
 
       <div class="form-floating">
-        <input formControlName="email" type="email" class="form-control" id="email" placeholder="name@example.com" />
+        <input
+          formControlName="email"
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="name@example.com"
+        />
         <label for="floatingInput">E-posta</label>
       </div>
       <div class="form-floating">
-        <input formControlName="password" type="password" class="form-control" id="password" placeholder="Password" />
+        <input
+          formControlName="password"
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="Password"
+        />
         <label for="floatingPassword">Parola</label>
       </div>
 

@@ -60,7 +60,7 @@ export class NaviComponent implements OnInit, OnDestroy {
   DecodeToken(token: string): string {
     return jwt_decode(token);
   }
-
+ 
   getPayments() {
     this.paymentService.getPayments().subscribe((response) => {
       this.payments = response.data;
@@ -72,7 +72,7 @@ export class NaviComponent implements OnInit, OnDestroy {
     this.router.navigateByUrl("login")
     this.loginCheck = false;
     this.name = "";
-    this.toastrService.info("Sistemden çıkış yapıldı")
+    this.toastrService.error("Sistemden çıkış yapıldı")
   }
 
   updateProfile(){
@@ -85,5 +85,17 @@ export class NaviComponent implements OnInit, OnDestroy {
 
   homePage(){
     this.router.navigateByUrl('');
+  }
+
+  carAdd(){
+    this.router.navigateByUrl('cars/add');
+  }
+
+  brandAdd(){
+    this.router.navigateByUrl('brands/add');
+  }
+
+  colorAdd(){
+    this.router.navigateByUrl('colors/add');
   }
 }
